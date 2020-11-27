@@ -12,21 +12,21 @@ class Home extends React.Component {
 
     async componentDidMount() {
         try {
-            const res = await axios.get('https://developers.themoviedb.org/3/movies/get-movie-details');
-            console.log(res.data.results);
-            this.setState({ theMovieDB: res.data.results })
+            const response = await axios.get('https://api.themoviedb.org/3/movie/550?api_key=2f0ee4659e75f22b0645bb580847d157');
+            console.log(response.data.results);
+            this.setState({ theMovieDB: response.data.results })
         } catch (err) {
             console.log(err);
         }
     }
 
     showResults() {
-        if (this.state.theMovieDB[0]) {
+        if (this.state.theMovieDB[""]) {
             return (
                 this.state.theMovieDB.map(movie => {
                     return (
                         <div className="movie" key={movie.id}>
-                            {movie.original_title}
+                            {movie.id}
                             <img onClick={() => this.clickSelectedElement(movie)} alt={movie.name} src={movie.image}></img>
                             {movie.release_date}
                         </div>

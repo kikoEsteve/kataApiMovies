@@ -7,6 +7,15 @@ import Moviedetail from './containers/Moviedetail/Moviedetail';
 function App () {
   return (
     <div className="App">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <img width="50" src="green_moviedb.png"></img>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />

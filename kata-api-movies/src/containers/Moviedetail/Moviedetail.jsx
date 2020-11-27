@@ -9,8 +9,8 @@ class Moviedetail extends React.Component {
     };
 
     componentDidMount() {
-        let res = JSON.parse(localStorage.getItem('movieData'));
-        this.setState({ selectedMovie: res });
+        let resultado = JSON.parse(localStorage.getItem('movieData'));
+        this.setState({ selectedMovie: resultado });
     }
     goBack() {
         this.props.history.push('/');
@@ -23,7 +23,7 @@ class Moviedetail extends React.Component {
                     <div>Release Date: {this.state.selectedMovie.release_date}</div>
                     <div>Genre: {this.state.selectedMovie.genres.name}</div>
                     <div>Runtime: {this.state.selectedMovie.runtime}</div>
-                    <div><img src={this.state.selectedMovie.poster_path}></img></div>
+                    <div><img alt="poster" width="120" src={this.state.selectedMovie.poster_src}></img></div>
                 </div>
             )
         } else {
@@ -31,6 +31,7 @@ class Moviedetail extends React.Component {
                 <div>LOADING MOVIE DATA</div>
             )
         }
+        console.log(this.state.selectedMovie.id);
     }
     render() {
         return (
