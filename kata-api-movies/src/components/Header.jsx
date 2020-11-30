@@ -4,7 +4,7 @@ class Header extends Component {
     render() {
         return (
             <div>
-                <h1>netflixClon</h1>
+                <h3>netflixClon</h3>
             </div>
         )
     }

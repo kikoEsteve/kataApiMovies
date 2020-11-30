@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Yellowtail-Regular";
+    src: url('./fonts/Yellowtail-Regular.ttf')
+}
+
+h3 {
+    font-family: "Yellowtail-Regular";
+    font-weight: normal;
+    font-style: normal;
+}
