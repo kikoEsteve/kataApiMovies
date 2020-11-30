@@ -1,38 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
+import './Moviedetail.css'
+// import MovieComponent from '../../components/MovieComponent';
 
-class Moviedetail extends React.Component {
+class Moviedetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedMovie: {}
+            movie: []
         }
     };
 
     componentDidMount() {
-        let resultado = JSON.parse(localStorage.getItem('movieData'));
-        this.setState({ selectedMovie: resultado });
+        let resultado = JSON.parse(localStorage.getItem('movie'));
+        this.setState({ movie: resultado });
     }
+    // componentDidUpdate() {
+    //     let resultado = JSON.parse(localStorage.getItem('movie'));
+    //     this.setState({ movie: resultado });
+    // }
+
     goBack() {
         this.props.history.push('/');
     }
     showData() {
-        if (this.state.selectedMovie?.id) {
+        if (this.state.movie.id) {
             return (
-                <div>
-                    <div>Title: {this.state.selectedMovie.original_title}</div>
-                    <div>Release Date: {this.state.selectedMovie.release_date}</div>
-                    <div>Genre: {this.state.selectedMovie.genres.name}</div>
-                    <div>Runtime: {this.state.selectedMovie.runtime}</div>
-                    <div><img alt="poster" width="120" src={this.state.selectedMovie.poster_src}></img></div>
+                <div className='mainDiv'>
+                    <h2>Title: {this.state.movie.original_title}</h2>
+                    <h1>Release Date: {this.state.movie.release_date}</h1>
+                    <h1>Genre: {this.state.movie.name}</h1>
+                    <h1>Runtime: {this.state.movie.runtime}</h1>
+                    <div className='img'><img alt="poster" width="120" src={'https://image.tmdb.org/t/p/w500' + this.state.movie.poster_path}></img></div>
                 </div>
-            )
+            );
         } else {
             return (
                 <div>LOADING MOVIE DATA</div>
-            )
-        }
-        console.log(this.state.selectedMovie.id);
-    }
+            );
+        };
+    };
     render() {
         return (
             <div>

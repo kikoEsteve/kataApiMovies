@@ -1,0 +1,20 @@
+.mainDiv {
+    width: 60em;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 2em;
+}
+
+.img {
+    margin-top: 1em;
+    width: 30%;
+}
+
+h1 {
+    color: gray;
+}
+
+h2 {
+    color: gray;
+}
